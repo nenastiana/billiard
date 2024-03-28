@@ -14,5 +14,5 @@
 
 Для запуска сервера: 
 
-cd client 
-npm run dev
+- cd client 
+- npm run dev
