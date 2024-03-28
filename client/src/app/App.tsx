@@ -28,9 +28,11 @@ function App(): JSX.Element {
   }, [balls]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    moveMouse(e, balls, setBalls);
+    if (!isAnimationStopped) {
+      moveMouse(e, balls, setBalls);
+    }
   };
-
+  
   const handleClick = () => {
     setIsAnimationStopped(!isAnimationStopped);
     if (!isAnimationStopped) {
