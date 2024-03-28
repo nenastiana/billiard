@@ -27,12 +27,14 @@ function App(): JSX.Element {
     animate();
   }, [balls]);
 
+  // Толкание шаров курсором
   const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
     if (!isAnimationStopped) {
       moveMouse(e, balls, setBalls);
     }
   };
-  
+
+  // Остановка анимации для изменения цвета 
   const handleClick = () => {
     setIsAnimationStopped(!isAnimationStopped);
     if (!isAnimationStopped) {
@@ -57,7 +59,7 @@ function App(): JSX.Element {
     return () => clearInterval(interval);
   }, [isAnimationStopped]);
 
-
+  // Изменение цвета шара
   const handleColorChange = (color: string) => {
     if (selectedBallIndex !== null) {
       setBalls(prevBalls => {
@@ -69,6 +71,7 @@ function App(): JSX.Element {
     }
   };
 
+  // Выделение выбранного шара 
   const ballClick = (index: number) => {
     if (isAnimationStopped) {
       setBalls(prevBalls => {
@@ -83,6 +86,7 @@ function App(): JSX.Element {
     }
   };
 
+  // Поиск шара по клику  
   const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
