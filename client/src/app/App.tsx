@@ -45,16 +45,16 @@ function App(): JSX.Element {
   useEffect(() => {
     const canvas = canvasRef.current;
     const interval = isAnimationStopped ? undefined : setInterval(() => moveBalls(canvas, setBalls), 10);
-  
+
     if (!isAnimationStopped) {
       setBalls(prevBalls => {
         return prevBalls.map(ball => ({ ...ball, border: null }));
       });
     }
-  
+
     return () => clearInterval(interval);
   }, [isAnimationStopped]);
-  
+
 
   const handleColorChange = (color: string) => {
     if (selectedBallIndex !== null) {
@@ -72,7 +72,7 @@ function App(): JSX.Element {
       setBalls(prevBalls => {
         const updatedBalls = prevBalls.map((ball, i) => ({
           ...ball,
-          border: i === index ? '2px solid black' : null
+          border: i === index ? '1px solid grey' : null
         }));
         setSelectedBallIndex(index);
         setSelectedColor(updatedBalls[index].color);
@@ -103,32 +103,40 @@ function App(): JSX.Element {
 
   return (
     <div>
-      <div>
-        <h1>billiard</h1>
-        <button onClick={handleClick}>{isAnimationStopped ? 'Continue play' : 'Change balls color'}</button>
+      <div className='header'>
+        <p>billiard</p>
+        <button className='main-button' onClick={handleClick}>{isAnimationStopped ? 'Continue playing' : 'Change balls color'}</button>
 
-        {isAnimationStopped && selectedBallIndex !== null && (
-          <div className="color-menu">
-            {initialBalls.map((ball, index) => (
-              <button
-                key={index}
-                className={`color-menu-button ${ball.color === selectedColor ? 'selected' : ''}`}
-                style={{ backgroundColor: ball.color}}
-                onClick={() => handleColorChange(ball.color)}
-              ></button>
-            ))}
-          </div>
-        )}
+        {isAnimationStopped ? (
+          selectedBallIndex !== null ? (
+            <div className="color-menu">
+              {initialBalls.map((ball, index) => (
+                <button
+                  key={index}
+                  className={`color-menu-button ${ball.color === selectedColor ? 'selected' : ''}`}
+                  style={{ backgroundColor: ball.color }}
+                  onClick={() => handleColorChange(ball.color)}
+                ></button>
+              ))}
+            </div>
+          ) : (
+            <div className='text'>
+              Choose a ball
+            </div>
+          )
+        ) : null}
+
       </div>
 
       <canvas
         ref={canvasRef}
         onMouseMove={handleMouseMove}
         onClick={handleCanvasClick}
-        width={600}
+        width={900}
         height={400}
-        style={{ backgroundColor: '#f0f0f0' }} 
-      ></canvas>
+      >
+      </canvas>
+
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { Ball } from '../types';
 
-export function animateBalls(balls: Ball[], context: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+export const animateBalls = (balls: Ball[], context: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => {
     context.clearRect(0, 0, canvas.width, canvas.height);
     balls.forEach((ball) => {
       context.beginPath();

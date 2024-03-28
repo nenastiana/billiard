@@ -5,6 +5,7 @@ export const moveBalls = ( canvas: HTMLCanvasElement, setBalls: React.Dispatch<R
   setBalls((prevBalls) => {
     return prevBalls.map((ball, index) => {
       let newBall = { ...ball };
+      
         // Двигаем шар
         let newX = ball.x;
         let newY = ball.y;
