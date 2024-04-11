@@ -1,17 +1,19 @@
-# billard на canvas
+# Billard on Canvas
 
-Технологии: Canvas, TS, React.
+A link to try the game: https://nenastiana.github.io/billiard/
+
+Tools: Canvas, TS, React.
 
 ![](./GifPreview.gif)
 
-Суть игры: 
+Game Description:
 
-- Есть прямоугольное поле Canvas, на котором расположены шары разного размера;
-- Можно толкнуть мышкой шар в сторону;
-- Шар упруго соударяется с другими шарами и стенками, часть импульса при соударении теряется;
-- Можно выбрать новый цвет шара (нажать на кнопку изменения цвета, которая остановит анимацию, после чего кликнуть на нужный шарик).
+- There is a rectangular Canvas field with balls of different sizes placed on it;
+- You can push a ball with the mouse in any direction;
+- The ball elastically collides with other balls and walls, losing some momentum upon collision;
+- You can select a new color for the ball (click on the color change button, which will pause the animation, then click on the desired ball).
 
-Для запуска сервера: 
+To start the server:
 
 - cd client 
 - npm run dev
