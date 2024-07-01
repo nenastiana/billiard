@@ -1,8 +1,8 @@
-# Billard on Canvas
+# Billard Game on Canvas
 
 A link to try the game: https://nenastiana.github.io/billiard/
 
-Tools: Canvas, TS, React.
+Tools: Canvas, TypeScript, React.js
 
 ![](./GifPreview.gif)
 
